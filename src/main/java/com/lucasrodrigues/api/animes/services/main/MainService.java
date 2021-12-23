@@ -3,16 +3,12 @@ package com.lucasrodrigues.api.animes.services.main;
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.lucasrodrigues.api.animes.domains.main.MainEntity;
 import com.lucasrodrigues.api.animes.repositorys.main.MainRepository;
 
-public class MainService<E extends MainEntity,R extends MainRepository<E>> {
+public class MainService<E extends MainEntity> {
 
-	@Autowired
-	private R repository;
-	
+	private MainRepository<E> repository;
 	
 	public List<E> findAll() {
 		return repository.findAll();
@@ -28,5 +24,9 @@ public class MainService<E extends MainEntity,R extends MainRepository<E>> {
 	
 	public List<E> saveAll(List<E> entities) {
 		return repository.saveAll(entities);
+	}
+	
+	public void setRepository(MainRepository<E> repository) {
+		this.repository = repository;
 	}
 }

@@ -12,18 +12,18 @@ import javax.persistence.Table;
 
 import com.lucasrodrigues.api.animes.domains.main.MainEntity;
 
-import lombok.Builder;
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 @Data
-@Builder
+@SuperBuilder
 @Entity
 @Table(name = "tbanime")
 public class Anime extends MainEntity{
 
 	
 	@Column(name = "authorid",nullable = false)
-	private UUID authorid;
+	private UUID authorId;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "authorid",foreignKey = @ForeignKey(name = "fk_authorxanimes"),insertable = false, updatable = false)
