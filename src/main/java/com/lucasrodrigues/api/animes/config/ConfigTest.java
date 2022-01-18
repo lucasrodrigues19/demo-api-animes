@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 
 import com.lucasrodrigues.api.animes.domains.Anime;
 import com.lucasrodrigues.api.animes.domains.Author;
+import com.lucasrodrigues.api.animes.dto.requests.AnimePostRequestBody;
 import com.lucasrodrigues.api.animes.services.AnimeService;
 import com.lucasrodrigues.api.animes.services.AuthorService;
 
@@ -27,7 +28,19 @@ public class ConfigTest implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
+		Author au1 = this.authorService.save(createAuthor("Kishmoto"));
+		Anime animeSaved1 = this.animeService.save(createAnimePostRequestBody(au1, "Boruto"));
+
+		System.out.println(animeSaved1.toString());
 		
+	}
+	
+	private AnimePostRequestBody createAnimePostRequestBody(Author author, String name) {
+		return AnimePostRequestBody.builder().name(name).authorId(author.getId()).build();
+	}
+	
+	private Author createAuthor(String name) {
+		return Author.builder().name(name).build();
 	}
 
 }
