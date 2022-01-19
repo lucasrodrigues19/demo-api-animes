@@ -1,6 +1,8 @@
+# Lucas Rodrigues [1.4.2] 19/01/2022
+##ADDED save anime and validate fields
+
 # Lucas Rodrigues [1.4.1] 19/01/2022
 ##ADDED Handler global exception 
-
 
 # Lucas Rodrigues [1.3.1] 18/01/2022
 ##ADDED MapStruct Mapping Framework
