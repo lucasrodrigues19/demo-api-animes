@@ -1,4 +1,7 @@
 
+# Lucas Rodrigues [1.5.2] 19/01/2022
+##ADDED Sorting, Log SQL
+
 # Lucas Rodrigues [1.5.3] 19/01/2022
 ##ADDED Changing spring global configuration for pagination
 
