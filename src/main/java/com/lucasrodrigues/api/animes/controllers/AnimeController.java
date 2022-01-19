@@ -5,6 +5,8 @@ import java.util.UUID;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +29,18 @@ public class AnimeController {
 	@GetMapping(value = "/find/{id}")
 	public ResponseEntity<Anime> findById(@PathVariable("id") UUID id) {
 		return ResponseEntity.ok(animeService.findByIdOrThrowBadRequestException(id));
+	}
+	
+	/**
+	 * Parametros
+	 * size = 5 -> retorna apenas 5 valores
+	 * page = 2 -> retorna a pagina 2
+	 * @param pageable
+	 * @return
+	 */
+	@GetMapping
+	public ResponseEntity<Page<Anime>> findAll(Pageable pageable) {
+		return ResponseEntity.ok(animeService.findAll(pageable));
 	}
 	
 	@PostMapping(value = "/save")

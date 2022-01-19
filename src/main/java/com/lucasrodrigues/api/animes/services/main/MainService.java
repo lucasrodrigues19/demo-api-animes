@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.lucasrodrigues.api.animes.domains.main.MainEntity;
 import com.lucasrodrigues.api.animes.exception.BadRequestException;
@@ -13,8 +15,8 @@ public class MainService<E extends MainEntity> {
 
 	private MainRepository<E> repository;
 	
-	public List<E> findAll() {
-		return repository.findAll();
+	public Page<E> findAll(Pageable pageable) {
+		return repository.findAll(pageable);
 	}
 	
 	public E findById(UUID id) {

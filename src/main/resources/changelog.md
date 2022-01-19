@@ -1,3 +1,6 @@
+# Lucas Rodrigues [1.5.2] 19/01/2022
+##ADDED Pageable
+
 # Lucas Rodrigues [1.4.2] 19/01/2022
 ##ADDED save anime and validate fields
 

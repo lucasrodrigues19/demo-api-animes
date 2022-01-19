@@ -27,7 +27,7 @@ public class Anime extends MainEntity{
 	@Column(name = "authorid",nullable = false)
 	private UUID authorId;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "authorid",foreignKey = @ForeignKey(name = "fk_authorxanimes"),insertable = false, updatable = false)
 	private Author author;
 }
