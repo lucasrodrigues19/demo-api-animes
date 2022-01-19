@@ -31,7 +31,7 @@ public class ConfigTest implements CommandLineRunner{
 		Author au1 = this.authorService.save(createAuthor("Kishmoto"));
 		Anime animeSaved1 = this.animeService.save(createAnimePostRequestBody(au1, "Boruto"));
 
-		System.out.println(animeSaved1.toString());
+		System.out.println(animeSaved1.getId() + " - " + animeSaved1.toString());
 		
 	}
 	

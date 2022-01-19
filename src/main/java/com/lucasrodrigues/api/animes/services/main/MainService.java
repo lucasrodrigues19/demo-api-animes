@@ -6,6 +6,7 @@ import java.util.UUID;
 
 
 import com.lucasrodrigues.api.animes.domains.main.MainEntity;
+import com.lucasrodrigues.api.animes.exception.BadRequestException;
 import com.lucasrodrigues.api.animes.repositorys.main.MainRepository;
 
 public class MainService<E extends MainEntity> {
@@ -17,7 +18,11 @@ public class MainService<E extends MainEntity> {
 	}
 	
 	public E findById(UUID id) {
-		return repository.findById(id).orElseThrow(null);
+		return repository.findById(id).orElse(null);
+	}
+	
+	public E findByIdOrThrowBadRequestException(UUID id) {
+		return repository.findById(id).orElseThrow(() -> new BadRequestException("anime not found"));
 	}
 	
 	public E save(E entity) {

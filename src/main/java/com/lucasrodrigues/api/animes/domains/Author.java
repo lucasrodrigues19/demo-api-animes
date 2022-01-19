@@ -13,10 +13,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lucasrodrigues.api.animes.domains.main.MainEntity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Data
 @SuperBuilder
+@NoArgsConstructor
 @Entity
 @Table(name = "tbauthor")
 public class Author extends MainEntity {
