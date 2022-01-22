@@ -1,4 +1,8 @@
 
+# Lucas Rodrigues [1.5.3] 22/01/2022
+##TESTING RestTemplate: getForEntity, getForObject
+
+
 # Lucas Rodrigues [1.5.2] 19/01/2022
 ##ADDED Sorting, Log SQL
 
