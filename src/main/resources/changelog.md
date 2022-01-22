@@ -1,4 +1,7 @@
 
+# Lucas Rodrigues [1.5.5] 22/01/2022
+##TESTING  RestTemplate exchange with ParameterizedTypeReference
+
 # Lucas Rodrigues [1.5.4] 22/01/2022
 ##FIXED findAll with Pageable and find all not Pageable
 

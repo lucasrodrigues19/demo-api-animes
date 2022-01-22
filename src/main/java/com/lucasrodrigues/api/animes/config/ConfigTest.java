@@ -1,11 +1,14 @@
 package com.lucasrodrigues.api.animes.config;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -55,7 +58,10 @@ public class ConfigTest implements CommandLineRunner{
 			
 			Anime object = new RestTemplate().getForObject("http://localhost/anime/find/"+animeSaved8.getId().toString(), Anime.class);
 			log.info(object);
-		
+			
+			//Me retorna uma lista convertida
+			ResponseEntity<List<Anime>> exchange = new RestTemplate().exchange("http://localhost/anime/findAll", HttpMethod.GET,null, new ParameterizedTypeReference<List<Anime>>() {});
+			log.info(exchange.getBody());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

@@ -30,5 +30,12 @@ public class Anime extends MainEntity{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "authorid",foreignKey = @ForeignKey(name = "fk_authorxanimes"),insertable = false, updatable = false)
 	private Author author;
+
+	@Override
+	public String toString() {
+		return "Anime [authorId=" + authorId + ", author=" + author + ", Id=" + getId() + ", Name="+ getName() + "]";
+	}
+	
+	
 }
 
