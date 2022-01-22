@@ -19,6 +19,10 @@ public class MainService<E extends MainEntity> {
 		return repository.findAll(pageable);
 	}
 	
+	public List<E> findAll() {
+		return repository.findAll();
+	}
+	
 	public E findById(UUID id) {
 		return repository.findById(id).orElse(null);
 	}

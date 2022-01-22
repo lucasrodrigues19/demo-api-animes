@@ -1,4 +1,7 @@
 
+# Lucas Rodrigues [1.5.4] 22/01/2022
+##FIXED findAll with Pageable and find all not Pageable
+
 # Lucas Rodrigues [1.5.3] 22/01/2022
 ##TESTING RestTemplate: getForEntity, getForObject
 

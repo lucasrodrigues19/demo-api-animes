@@ -1,5 +1,6 @@
 package com.lucasrodrigues.api.animes.controllers;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.validation.Valid;
@@ -38,9 +39,14 @@ public class AnimeController {
 	 * @param pageable
 	 * @return
 	 */
-	@GetMapping
-	public ResponseEntity<Page<Anime>> findAll(Pageable pageable) {
+	@GetMapping("/findAll/pegeable")
+	public ResponseEntity<Page<Anime>> findAllWithPageable(Pageable pageable) {
 		return ResponseEntity.ok(animeService.findAll(pageable));
+	}
+	
+	@GetMapping("/findAll")
+	public ResponseEntity<List<Anime>> findAll() {
+		return ResponseEntity.ok(animeService.findAll());
 	}
 	
 	@PostMapping(value = "/save")
