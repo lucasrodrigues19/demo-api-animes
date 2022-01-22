@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
@@ -49,6 +50,10 @@ public class ConfigTest implements CommandLineRunner{
 		System.out.println(animeSaved1.getId() + " - " + animeSaved1.toString());
 		
 		getForEntityAndGetForObject(animeSaved8);
+		
+		System.out.println("Post for Oject and Exchange");
+		
+		postForObjectAndExchange(createAnime(au1, null, "Kingdom"));
 	}
 
 	private void getForEntityAndGetForObject(Anime animeSaved8) {
@@ -61,6 +66,21 @@ public class ConfigTest implements CommandLineRunner{
 			
 			//Me retorna uma lista convertida
 			ResponseEntity<List<Anime>> exchange = new RestTemplate().exchange("http://localhost/anime/findAll", HttpMethod.GET,null, new ParameterizedTypeReference<List<Anime>>() {});
+			log.info(exchange.getBody());
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void postForObjectAndExchange(Anime anime) {
+		try {
+			
+			Anime object =  new RestTemplate().postForObject("http://localhost/anime/save", anime, Anime.class);
+			log.info(object);
+			
+			anime.setName("Samurai champloo");
+			ResponseEntity<Anime> exchange =  new RestTemplate().exchange("http://localhost/anime/save", HttpMethod.POST, new HttpEntity<>(anime), Anime.class);
 			log.info(exchange.getBody());
 		}catch(Exception e) {
 			e.printStackTrace();
