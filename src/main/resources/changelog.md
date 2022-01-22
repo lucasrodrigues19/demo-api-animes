@@ -1,3 +1,6 @@
+# Lucas Rodrigues [1.5.7] 22/01/2022
+##ADDED Unit test, anime Repository, update, delete, findByName
+
 # Lucas Rodrigues [1.5.6] 22/01/2022
 ##TESTING  RestTemplate postForObject And Exchange
 
