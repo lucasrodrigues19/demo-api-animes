@@ -1,3 +1,6 @@
+# Lucas Rodrigues [1.5.8] 25/01/2022
+##ADDED Unit test, AnimeController, findAll pageable
+
 # Lucas Rodrigues [1.5.7] 22/01/2022
 ##ADDED Unit test, anime Repository, update, delete, findByName
 

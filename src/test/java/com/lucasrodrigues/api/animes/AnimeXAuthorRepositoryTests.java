@@ -1,7 +1,6 @@
 package com.lucasrodrigues.api.animes;
 
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +14,7 @@ import com.lucasrodrigues.api.animes.domains.Anime;
 import com.lucasrodrigues.api.animes.domains.Author;
 import com.lucasrodrigues.api.animes.repositorys.AnimeRepository;
 import com.lucasrodrigues.api.animes.repositorys.AuthorRepository;
+import com.lucasrodrigues.api.animes.util.AnimeCreator;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -32,8 +32,8 @@ class AnimeXAuthorRepositoryTests {
 	@Test
 	@DisplayName("Save creates author and anime when success")
 	void save_PersistAuthorAndAnime_WhenSuccess() {
-		Author au1 = this.authorRepository.save(createAuthor("Kishmoto"));
-		Anime animeSaved1 = this.animeRepository.save(createAnime(au1, "Boruto"));
+		Author au1 = this.authorRepository.save(AnimeCreator.createAuthor("Kishmoto"));
+		Anime animeSaved1 = this.animeRepository.save(AnimeCreator.createAnimeToSave(au1, "Boruto"));
 		
 		//Saber se o anime foi salvo
 		
@@ -55,8 +55,8 @@ class AnimeXAuthorRepositoryTests {
 	@DisplayName("save updates anime when success")
 	void save_UpdateAnime_WhenSuccess() {
 		
-		Author au1 = this.authorRepository.save(createAuthor("Kishmoto"));
-		Anime animeSaved1 = this.animeRepository.save(createAnime(au1, "Boruto"));
+		Author au1 = this.authorRepository.save(AnimeCreator.createAuthor("Kishmoto"));
+		Anime animeSaved1 = this.animeRepository.save(AnimeCreator.createAnimeToSave(au1, "Boruto"));
 		
 		
 		animeSaved1.setName("Dragon ball super");
@@ -88,8 +88,8 @@ class AnimeXAuthorRepositoryTests {
 	@DisplayName("delete remove anime when success")
 	void delete_RemoveAnime_WhenSuccess() {
 		
-		Author au1 = this.authorRepository.save(createAuthor("Kishmoto"));
-		Anime animeSaved1 = this.animeRepository.save(createAnime(au1, "Boruto deletado"));
+		Author au1 = this.authorRepository.save(AnimeCreator.createAuthor("Kishmoto"));
+		Anime animeSaved1 = this.animeRepository.save(AnimeCreator.createAnimeToSave(au1, "Boruto deletado"));
 		
 		this.animeRepository.delete(animeSaved1);
 		
@@ -104,8 +104,8 @@ class AnimeXAuthorRepositoryTests {
 	@DisplayName("find by name returns list when anime is found")
 	void findByName_ReturnList_WhenAnimeIsFound() {
 		
-		Author au1 = this.authorRepository.save(createAuthor("Kishmoto"));
-		Anime animeSaved1 = this.animeRepository.save(createAnime(au1, "Boruto"));
+		Author au1 = this.authorRepository.save(AnimeCreator.createAuthor("Kishmoto"));
+		Anime animeSaved1 = this.animeRepository.save(AnimeCreator.createAnimeToSave(au1, "Boruto"));
 		
 		List<Anime> listAnime = this.animeRepository.findByName(animeSaved1.getName());
 		
@@ -126,12 +126,4 @@ class AnimeXAuthorRepositoryTests {
 		
 	}
 	
-	
-	private Anime createAnime(Author author, String name) {
-		return Anime.builder().name(name).authorId(author.getId()).dtInsert(LocalDateTime.now()).dtUpdate(LocalDateTime.now()).build();
-	}
-	
-	private Author createAuthor(String name) {
-		return Author.builder().name(name).dtInsert(LocalDateTime.now()).dtUpdate(LocalDateTime.now()).build();
-	}
 }
