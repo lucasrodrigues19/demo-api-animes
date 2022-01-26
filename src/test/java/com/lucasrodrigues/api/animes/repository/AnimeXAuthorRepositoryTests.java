@@ -1,4 +1,4 @@
-package com.lucasrodrigues.api.animes;
+package com.lucasrodrigues.api.animes.repository;
 
 
 import java.util.List;

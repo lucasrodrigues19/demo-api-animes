@@ -1,5 +1,7 @@
 package com.lucasrodrigues.api.animes.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,10 @@ public class AnimeService extends MainService<Anime>{
 	public Anime save(AnimePostRequestBody entityRequest) {
 		Anime entity = AnimeMapper.INSTANCE.toAnime(entityRequest);
 		return super.save(entity);
+	}
+	
+	public List<Anime> findByName(String name) {
+		return repository.findByName(name);
 	}
 	
 	

@@ -1,3 +1,6 @@
+# Lucas Rodrigues [1.5.10] 26/01/2022
+##ADDED Unit test, AnimeController, findAll, save, findById, findByName
+
 # Lucas Rodrigues [1.5.8] 25/01/2022
 ##ADDED Unit test, AnimeController, findAll pageable
 

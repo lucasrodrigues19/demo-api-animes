@@ -32,6 +32,11 @@ public class AnimeController {
 		return ResponseEntity.ok(animeService.findByIdOrThrowBadRequestException(id));
 	}
 	
+	@GetMapping(value = "/find/{name}")
+	public ResponseEntity<List<Anime>> findByName(@PathVariable("name") String name) {
+		return ResponseEntity.ok(animeService.findByName(name));
+	}
+	
 	/**
 	 * Parametros
 	 * size = 5 -> retorna apenas 5 valores
