@@ -1,11 +1,14 @@
 # Lucas Rodrigues [1.5.10] 26/01/2022
-##ADDED Unit test, AnimeController, findAll, save, findById, findByName
+##ADDED Unit test, AnimeService: findAll, findById, findByName, delete, save, findByIdOrThrowBadRequestException
+
+# Lucas Rodrigues [1.5.10] 26/01/2022
+##ADDED Unit test, AnimeController: findAll, save, findById, findByName
 
 # Lucas Rodrigues [1.5.8] 25/01/2022
-##ADDED Unit test, AnimeController, findAll pageable
+##ADDED Unit test, AnimeController: findAllWithPageable
 
 # Lucas Rodrigues [1.5.7] 22/01/2022
-##ADDED Unit test, anime Repository, update, delete, findByName
+##ADDED Unit test, AnimeRepository: update, delete, findByName
 
 # Lucas Rodrigues [1.5.6] 22/01/2022
 ##TESTING  RestTemplate postForObject And Exchange
@@ -39,7 +42,7 @@
 ##ADDED MapStruct Mapping Framework
 
 # Lucas Rodrigues [1.2.1] 23/12/2021
-##ADDED Unit test, Autor and anime Repository, save
+##ADDED Unit test, Autor and AnimeRepository: save
 
 # Lucas Rodrigues [1.1.1] 22/12/2021
 ##ADDED project, business rule

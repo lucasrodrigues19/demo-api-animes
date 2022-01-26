@@ -53,4 +53,8 @@ public class MainService<E extends MainEntity> {
 	public void setRepository(MainRepository<E> repository) {
 		this.repository = repository;
 	}
+	
+	public void delete(E entity) {
+		repository.delete(entity);
+	}
 }
