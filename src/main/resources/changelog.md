@@ -1,4 +1,7 @@
-# Lucas Rodrigues [1.5.10] 26/01/2022
+# Lucas Rodrigues [1.5.12] 27/01/2022
+##ADDED Unit test Integration 01, AnimeControllerIT, wrapper: PageableResponse
+
+# Lucas Rodrigues [1.5.11] 26/01/2022
 ##ADDED Unit test, AnimeService: findAll, findById, findByName, delete, save, findByIdOrThrowBadRequestException
 
 # Lucas Rodrigues [1.5.10] 26/01/2022

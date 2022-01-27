@@ -45,15 +45,15 @@ public class ConfigTest implements CommandLineRunner{
 		Anime animeSaved6 = this.animeService.save(createAnimePostRequestBody(au1, "Dbz super"));
 		Anime animeSaved7 = this.animeService.save(createAnimePostRequestBody(au1, "Naruto Shippuden"));
 		Anime animeSaved8 = this.animeService.save(createAnimePostRequestBody(au1, "Nanatsu tazai"));
-		
-
-		System.out.println(animeSaved1.getId() + " - " + animeSaved1.toString());
-		
-		getForEntityAndGetForObject(animeSaved8);
-		
-		System.out.println("Post for Oject and Exchange");
-		
-		postForObjectAndExchange(createAnime(au1, null, "Kingdom"));
+//		
+//
+//		System.out.println(animeSaved1.getId() + " - " + animeSaved1.toString());
+//		
+//		getForEntityAndGetForObject(animeSaved8);
+//		
+//		System.out.println("Post for Oject and Exchange");
+//		
+//		postForObjectAndExchange(createAnime(au1, null, "Kingdom"));
 	}
 
 	private void getForEntityAndGetForObject(Anime animeSaved8) {
