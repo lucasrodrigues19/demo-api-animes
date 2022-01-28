@@ -1,3 +1,6 @@
+# Lucas Rodrigues [1.5.13] 28/01/2022
+##ADDED file in resource test, logback.xml for debug type information
+
 # Lucas Rodrigues [1.5.12] 27/01/2022
 ##ADDED Unit test Integration 01, AnimeControllerIT, wrapper: PageableResponse
 
