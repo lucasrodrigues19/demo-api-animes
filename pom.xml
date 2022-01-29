@@ -77,10 +77,44 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
-		
-    	
 	</dependencies>
-
+	<!-- Perfis para testes unitarios comando: mvn test -P{id} -->
+	<profiles>
+		<profile> <!-- Perfil para teste de integração -->
+			<id>integration-tests</id>
+			<build>
+				<plugins>
+					<plugin>
+						 <groupId>org.apache.maven.plugins</groupId>
+						 <artifactId>maven-surefire-plugin</artifactId>
+						 <version>3.0.0-M5</version>
+						<configuration>
+							<includes> <!-- Independente do pacote vou querer que execute a classe com o final IT -->
+								<include>**/*IT.*</include>
+							</includes>
+						</configuration>			
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile> <!-- Perfil para testes unitarios -->
+			<id>unit-tests</id>
+			<build>
+				<plugins>
+					<plugin>
+						 <groupId>org.apache.maven.plugins</groupId>
+						 <artifactId>maven-surefire-plugin</artifactId>
+						 <version>3.0.0-M5</version>
+						<configuration>
+							<includes> <!-- Independente do pacote vou querer que execute a classe com o final IT -->
+								<include>**/*Tests.*</include>
+							</includes>
+						</configuration>			
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 	<build>
 		<plugins>
 			<plugin>

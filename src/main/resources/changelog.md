@@ -1,3 +1,6 @@
+# Lucas Rodrigues [1.5.15] 29/01/2022
+##ADDED maven profiles tests units
+
 # Lucas Rodrigues [1.5.14] 28/01/2022
 ##ADDED Unit test Integration 02, AnimeControllerIT: findById, findByName, save, findAll
 
