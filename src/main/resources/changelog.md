@@ -1,3 +1,6 @@
+# Lucas Rodrigues [1.6.1] 29/01/2022
+##ADDED spring security 01, http Basic, memory authentication 
+
 # Lucas Rodrigues [1.5.15] 29/01/2022
 ##ADDED maven profiles tests units
 
