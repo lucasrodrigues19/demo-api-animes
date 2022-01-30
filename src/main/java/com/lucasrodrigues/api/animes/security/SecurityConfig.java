@@ -18,6 +18,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	/**
 	 * Aqui vou configura o que estou protegendo com o protocolo http
+	 * Filtros:
+	 * 	BasicAuthenticationFilter
+	 *  UsernamePasswordAuthenticationFilter -> Verifica se na minha requisição tem usuario e senha
+	 *  DefaultLoginPageGeneratingFilter -> gera a pagina de login
+	 *  DefaultLogoutPageGeneratingFilter -> gera a pagina de login
+	 *  FilterSecurityInterceptor -> checa se está autorizado
+	 *  
+	 *  1 -> Authentication
+	 *  2 -> Authorization
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -32,6 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers(publicMatchers()).permitAll()
 		.anyRequest()
 		.authenticated()
+		.and()
+		.formLogin()
 		.and()
 		.httpBasic(); //forma de autenticação http basic, que é Usuario e senha codificado
 	}

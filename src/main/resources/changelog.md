@@ -1,5 +1,8 @@
+# Lucas Rodrigues [1.9.1] 30/01/2022
+##ADDED spring security 03, main authentication and default page
+
 # Lucas Rodrigues [1.8.1] 30/01/2022
-##ADDED spring security 01, PreAuthorized
+##ADDED spring security 02, PreAuthorized
 
 # Lucas Rodrigues [1.7.1] 30/01/2022
 ##ADDED spring security 01, csrf token
