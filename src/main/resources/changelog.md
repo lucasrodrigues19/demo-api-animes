@@ -1,3 +1,6 @@
+# Lucas Rodrigues [1.8.1] 30/01/2022
+##ADDED spring security 01, PreAuthorized
+
 # Lucas Rodrigues [1.7.1] 30/01/2022
 ##ADDED spring security 01, csrf token
 
