@@ -47,7 +47,7 @@ public class ConfigTest implements CommandLineRunner{
 		Anime animeSaved8 = this.animeService.save(createAnimePostRequestBody(au1, "Nanatsu tazai"));
 //		
 //
-//		System.out.println(animeSaved1.getId() + " - " + animeSaved1.toString());
+		System.out.println(animeSaved1.getId() + " - " + animeSaved1.toString());
 //		
 //		getForEntityAndGetForObject(animeSaved8);
 //		

@@ -1,3 +1,6 @@
+# Lucas Rodrigues [1.7.1] 30/01/2022
+##ADDED spring security 01, csrf token
+
 # Lucas Rodrigues [1.6.1] 29/01/2022
 ##ADDED spring security 01, http Basic, memory authentication 
 

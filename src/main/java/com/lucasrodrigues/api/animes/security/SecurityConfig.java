@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -18,7 +19,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests() //quaquer url  precisa estar autenticada
+		/*
+		 * CSRF -> Evita que Alguem execute alguma ação em seu nome
+		 * withHttpOnlyTrue -> aplicações no front não poderão acessar o cookie
+		 */
+		
+		
+		http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
+		.authorizeRequests() //quaquer url  precisa estar autenticada
+		.antMatchers(publicMatchers()).permitAll()
 		.anyRequest()
 		.authenticated()
 		.and()
@@ -46,6 +55,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.roles("USER");
 	}
 
-
+	private String[] publicMatchers () {
+		String[] matchers = {"/h2-console/**"};
+		return matchers;
+	}
 	
 }
