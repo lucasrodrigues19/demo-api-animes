@@ -29,6 +29,7 @@ public class AnimeController {
 	@Autowired
 	private AnimeService animeService;
 	
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Anime> findById(@PathVariable("id") UUID id) {
 		return ResponseEntity.ok(animeService.findByIdOrThrowBadRequestException(id));

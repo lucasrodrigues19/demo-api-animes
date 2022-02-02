@@ -9,13 +9,21 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
+import com.lucasrodrigues.api.animes.services.UserDetailsServiceImpl;
+import com.lucasrodrigues.api.animes.utils.PasswordEncoderUtil;
+
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @EnableWebSecurity
 @Log4j2
 @EnableGlobalMethodSecurity(prePostEnabled = true) //enable postAuthorized
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
+	private final UserDetailsServiceImpl userDetailsServiceImpl;
+	
+	
 	/**
 	 * Aqui vou configura o que estou protegendo com o protocolo http
 	 * Filtros:
@@ -53,19 +61,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	 */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		PasswordEncoder passwordEncode = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-		log.info("passowrd encoder: "+passwordEncode.encode("test"));
+		PasswordEncoder passwordEncoder = PasswordEncoderUtil.getInstance();
+		log.info("passowrd encoder: "+passwordEncoder.encode("test"));
+		
+		//Posso usar os dois tipos de usuarios, em memoria e no banco de dados.
 		
 		//os usuários vao ficar no ciclo de vida na aplicação
-		
 		auth.inMemoryAuthentication()
-		.withUser("lucas")
-		.password(passwordEncode.encode("test"))
+		.withUser("_lucasMemory")
+		.password(passwordEncoder.encode("test"))
 		.roles("USER","ADMIN")
 		.and()
-		.withUser("animes")
-		.password(passwordEncode.encode("test"))
+		.withUser("_padraoMemory")
+		.password(passwordEncoder.encode("test"))
 		.roles("USER");
+		
+		//Usuarios em banco de dados
+		auth.userDetailsService(userDetailsServiceImpl).passwordEncoder(passwordEncoder);
 	}
 
 	private String[] publicMatchers () {

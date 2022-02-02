@@ -15,9 +15,11 @@ import org.springframework.web.client.RestTemplate;
 
 import com.lucasrodrigues.api.animes.domains.Anime;
 import com.lucasrodrigues.api.animes.domains.Author;
+import com.lucasrodrigues.api.animes.domains.User;
 import com.lucasrodrigues.api.animes.dto.requests.AnimePostRequestBody;
 import com.lucasrodrigues.api.animes.services.AnimeService;
 import com.lucasrodrigues.api.animes.services.AuthorService;
+import com.lucasrodrigues.api.animes.services.UserDetailsServiceImpl;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -32,10 +34,17 @@ public class ConfigTest implements CommandLineRunner{
 	@Autowired
 	private AnimeService animeService;
 	
+	@Autowired
+	private UserDetailsServiceImpl userDetailsServiceImpl;
+	
 	@Override
 	public void run(String... args) throws Exception {
 		
 		Author au1 = this.authorService.save(createAuthor("Kishmoto"));
+		
+		User userAdmin = userDetailsServiceImpl.save(createUser("Lucas", "ROLE_ADMIN,ROLE_USER", "test", "_lucas"));
+		User userUser = userDetailsServiceImpl.save(createUser("Padrão", "ROLE_USER", "test", "_padrao"));
+
 		
 		Anime animeSaved1 = this.animeService.save(createAnime(au1,UUID.fromString("32be9b2b-94f7-45d5-884d-e5c08c00e3cd"), "Boruto"));
 		Anime animeSaved2 = this.animeService.save(createAnimePostRequestBody(au1, "Naruto clássico"));
@@ -97,6 +106,10 @@ public class ConfigTest implements CommandLineRunner{
 	
 	private Author createAuthor(String name) {
 		return Author.builder().name(name).build();
+	}
+	
+	private User createUser(String name, String authorities, String password, String username) {
+		return User.builder().username(username).name(name).authorities(authorities).passowrd(password).build();
 	}
 
 }

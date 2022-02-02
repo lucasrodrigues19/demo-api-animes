@@ -1,3 +1,6 @@
+# Lucas Rodrigues [1.10.1] 02/02/2022
+##ADDED spring security 04, authentication with data base user
+
 # Lucas Rodrigues [1.9.1] 30/01/2022
 ##ADDED spring security 03, main authentication and default page
 
