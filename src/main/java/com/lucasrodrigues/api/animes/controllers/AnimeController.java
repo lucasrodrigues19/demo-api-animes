@@ -29,7 +29,6 @@ public class AnimeController {
 	@Autowired
 	private AnimeService animeService;
 	
-	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Anime> findById(@PathVariable("id") UUID id) {
 		return ResponseEntity.ok(animeService.findByIdOrThrowBadRequestException(id));
@@ -57,8 +56,7 @@ public class AnimeController {
 		return ResponseEntity.ok(animeService.findAll());
 	}
 	
-	@PostMapping(value = "/save")
-	@PreAuthorize("hasRole('ADMIN')")
+	@PostMapping(value = "/admin/save")
 	public ResponseEntity<Anime> save(@RequestBody @Valid AnimePostRequestBody animePostRequestBody) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(animeService.save(animePostRequestBody));
 	}

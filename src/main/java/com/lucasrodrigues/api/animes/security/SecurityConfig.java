@@ -46,6 +46,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
 		.authorizeRequests() //quaquer url  precisa estar autenticada
+		//O que for mais restritivo vem primeiro
+		.antMatchers("/anime/admin/**").hasRole("ADMIN")
+		.antMatchers("/anime/**").hasRole("USER")
 		.antMatchers(publicMatchers()).permitAll()
 		.anyRequest()
 		.authenticated()

@@ -1,3 +1,6 @@
+# Lucas Rodrigues [1.10.2] 02/02/2022
+##ADDED protecting url with antmatchers
+
 # Lucas Rodrigues [1.10.1] 02/02/2022
 ##ADDED spring security 04, authentication with data base user
 
