@@ -1,3 +1,6 @@
+# Lucas Rodrigues [1.10.3] 03/02/2022
+##FIXED Unit test Integration with Spring Security
+
 # Lucas Rodrigues [1.10.2] 02/02/2022
 ##ADDED protecting url with antmatchers
 

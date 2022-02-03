@@ -17,7 +17,6 @@ import lombok.extern.log4j.Log4j2;
 
 @EnableWebSecurity
 @Log4j2
-@EnableGlobalMethodSecurity(prePostEnabled = true) //enable postAuthorized
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
@@ -44,7 +43,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		 */
 		
 		
-		http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
+//		http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
+	    http.csrf().disable()
 		.authorizeRequests() //quaquer url  precisa estar autenticada
 		//O que for mais restritivo vem primeiro
 		.antMatchers("/anime/admin/**").hasRole("ADMIN")

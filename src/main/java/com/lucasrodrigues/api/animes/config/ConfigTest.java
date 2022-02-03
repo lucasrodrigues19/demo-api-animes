@@ -46,18 +46,19 @@ public class ConfigTest implements CommandLineRunner{
 		User userUser = userDetailsServiceImpl.save(createUser("Padrão", "ROLE_USER", "test", "_padrao"));
 
 		
-		Anime animeSaved1 = this.animeService.save(createAnime(au1,UUID.fromString("32be9b2b-94f7-45d5-884d-e5c08c00e3cd"), "Boruto"));
-		Anime animeSaved2 = this.animeService.save(createAnimePostRequestBody(au1, "Naruto clássico"));
-		Anime animeSaved3 = this.animeService.save(createAnimePostRequestBody(au1, "Dbz classico"));
-		Anime animeSaved4 = this.animeService.save(createAnimePostRequestBody(au1, "One Piece"));
-		Anime animeSaved5 = this.animeService.save(createAnimePostRequestBody(au1, "Death Note"));
-		Anime animeSaved6 = this.animeService.save(createAnimePostRequestBody(au1, "Dbz super"));
-		Anime animeSaved7 = this.animeService.save(createAnimePostRequestBody(au1, "Naruto Shippuden"));
-		Anime animeSaved8 = this.animeService.save(createAnimePostRequestBody(au1, "Nanatsu tazai"));
+		Anime animeSaved1 = animeService.save(createAnimePostRequestBody(au1, "Boruto"));
+		Anime animeSaved2 = animeService.save(createAnimePostRequestBody(au1, "Naruto clássico"));
+		Anime animeSaved3 = animeService.save(createAnimePostRequestBody(au1, "Dbz classico"));
+		Anime animeSaved4 = animeService.save(createAnimePostRequestBody(au1, "One Piece"));
+		Anime animeSaved5 = animeService.save(createAnimePostRequestBody(au1, "Death Note"));
+		Anime animeSaved6 = animeService.save(createAnimePostRequestBody(au1, "Dbz super"));
+		Anime animeSaved7 = animeService.save(createAnimePostRequestBody(au1, "Naruto Shippuden"));
+		Anime animeSaved8 = animeService.save(createAnimePostRequestBody(au1, "Nanatsu tazai"));
 //		
 //
-		System.out.println(animeSaved1.getId() + " - " + animeSaved1.toString());
-//		
+		if(animeSaved1 != null) {
+			System.out.println(animeSaved1.getId() + " - " + animeSaved1.toString());
+		}			
 //		getForEntityAndGetForObject(animeSaved8);
 //		
 //		System.out.println("Post for Oject and Exchange");
