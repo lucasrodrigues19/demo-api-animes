@@ -16,7 +16,7 @@ import lombok.Setter;
 /**
  * Aqui vou desserealizar um objeto imutavel, ou seja, objetos que mantem seu estado
  * até o final, uma vez instanciado.
- * Ou seja vou fazer um wrapper daquilo que estamos retornando, no PAGE
+ * Vou fazer um wrapper daquilo que estamos retornando, no PAGE
  * @author Lucas Rodrigues
  * @since 2022/01/27
  */

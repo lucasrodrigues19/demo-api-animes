@@ -1,4 +1,7 @@
-# Lucas Rodrigues [1.11.3] 04/02/2022
+# Lucas Rodrigues [1.11.2] 04/02/2022
+##ADDED Swagger(Open api spring) documentation 02
+
+# Lucas Rodrigues [1.11.1] 04/02/2022
 ##ADDED Swagger(Open api spring) documentation 01
 
 # Lucas Rodrigues [1.10.3] 03/02/2022
