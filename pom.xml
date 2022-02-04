@@ -102,7 +102,15 @@
 	      <artifactId>springdoc-openapi-security</artifactId>
 	      <version>1.6.5</version>
    		</dependency>
+   		
+   		<!--Para dizer qual estado minha aplicação se encontra(Usado em microservices em ambientes cloud) -->
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-actuator</artifactId>
+	    </dependency>
+   		
 	</dependencies>
+	
 	<!-- Perfis para testes unitarios comando: mvn test -P{id} -->
 	<profiles>
 		<profile> <!-- Perfil para teste de integração -->

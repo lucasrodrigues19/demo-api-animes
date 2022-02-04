@@ -84,7 +84,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 
 	private String[] publicMatchers () {
-		String[] matchers = {"/h2-console/**"};
+		String[] matchers = {"/h2-console/**","/actuator/**"};
 		return matchers;
 	}
 	

@@ -1,8 +1,11 @@
+# Lucas Rodrigues [1.12.1] 04/02/2022
+##ADDED Spring actuator /actuator
+
 # Lucas Rodrigues [1.11.2] 04/02/2022
-##ADDED Swagger(Open api spring) documentation 02
+##ADDED Swagger(Open api spring) documentation 02 /swagger-ui.html
 
 # Lucas Rodrigues [1.11.1] 04/02/2022
-##ADDED Swagger(Open api spring) documentation 01
+##ADDED Swagger(Open api spring) documentation 01 /swagger-ui.html
 
 # Lucas Rodrigues [1.10.3] 03/02/2022
 ##FIXED Unit test Integration with Spring Security
