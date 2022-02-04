@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import javax.validation.Valid;
 
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lucasrodrigues.api.animes.domains.Anime;
 import com.lucasrodrigues.api.animes.dto.requests.AnimePostRequestBody;
 import com.lucasrodrigues.api.animes.services.AnimeService;
+
+import io.swagger.v3.oas.annotations.Parameter;
 
 @RestController
 @RequestMapping("/anime")
@@ -47,7 +50,7 @@ public class AnimeController {
 	 * @return
 	 */
 	@GetMapping("/findAll/pegeable")
-	public ResponseEntity<Page<Anime>> findAllWithPageable(Pageable pageable) {
+	public ResponseEntity<Page<Anime>> findAllWithPageable(@ParameterObject Pageable pageable) {
 		return ResponseEntity.ok(animeService.findAll(pageable));
 	}
 	

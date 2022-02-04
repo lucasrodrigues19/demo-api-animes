@@ -1,3 +1,6 @@
+# Lucas Rodrigues [1.11.3] 04/02/2022
+##ADDED Swagger(Open api spring) documentation 01
+
 # Lucas Rodrigues [1.10.3] 03/02/2022
 ##FIXED Unit test Integration with Spring Security
 
