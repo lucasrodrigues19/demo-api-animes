@@ -1,5 +1,14 @@
+# Lucas Rodrigues [1.13.1] 08/02/2022
+##ADDED monitoring app with prometheus
+  - endpoint: localhost:9090
+  - configuration without docker
+  	- download prometheus
+  	- configure job in prometheus.yml
+  	- execute in prompt:  prometheus.exe --config.file=prometheus.yml
+  	
+
 # Lucas Rodrigues [1.12.1] 04/02/2022
-##ADDED Spring actuator /actuator
+##ADDED Spring actuator. endpoint: /actuator
 
 # Lucas Rodrigues [1.11.2] 04/02/2022
 ##ADDED Swagger(Open api spring) documentation 02 /swagger-ui.html
